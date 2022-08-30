@@ -83,9 +83,10 @@ pred = prediction['Class']
 
 if txt == "":
     pass
-elif pred == "Not News":
+elif pred == 'Not News':
     st.warning("""Hmm... this doesn't sound like a news article""")
     # Display funny pic/gif
+
 elif float(pred) > 0.5:
     st.success(f"""Message displayed for success (True)!
 
