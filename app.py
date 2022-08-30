@@ -82,10 +82,10 @@ prediction = response.json()
 pred = prediction['Class']
 
 if pred == 'True':
-    st.success(f"""With an accuracy of %, our model asserts that what this article says the truth!""")
+    st.success(f"""Message displayed for success (True)!""")
     # Display funny pic/gif
 elif pred == 'False':
-    st.error(f"""Fake! (funny text)""")
+    st.error(f"""Message displayed for fake""")
     # Display funny pic/gif
 else:
     st.warning("""Hmm... this doesn't sound like a news article""")
