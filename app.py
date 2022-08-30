@@ -19,7 +19,8 @@ st.set_page_config(
 
 st.sidebar.markdown("""
     # Some information
-    Context of the project, data sources, methodology (algorithms that we've chosen, parameters, evaluation metrics), constraints, etc.
+
+    Optional: Context of the project, data sources, methodology (algorithms that we've chosen, parameters, evaluation metrics), constraints, etc.
 
     Some info about the authors
     """)
@@ -73,17 +74,17 @@ if st.checkbox('Show progress bar'):
     '...and we\'re done!'
 
 
-fakenews_api_url = URL
-response = requests.get(fakenews_api_url, params=txt)
+fakenews_api_url = 'https://fakenews-container-ec4glsrwzq-nw.a.run.app/predict'
+response = requests.get(fakenews_api_url, params={'txt':txt})
 
 prediction = response.json()
 
-pred = prediction[CLASS]
+pred = prediction['Class']
 
 if pred == 'True':
-    st.success(f"""With an accuracy of {accuracy*100}%, our model asserts that what this article says the truth!""")
+    st.success(f"""With an accuracy of %, our model asserts that what this article says the truth!""")
     # Display funny pic/gif
-elif pred == 'Fake':
+elif pred == 'False':
     st.error(f"""Fake! (funny text)""")
     # Display funny pic/gif
 else:
