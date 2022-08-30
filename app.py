@@ -81,7 +81,9 @@ prediction = response.json()
 
 pred = prediction['Class']
 
-if pred == 'True':
+if txt == "":
+    pass
+elif pred == 'True':
     st.success(f"""Message displayed for success (True)!""")
     # Display funny pic/gif
 elif pred == 'False':
