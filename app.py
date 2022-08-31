@@ -142,6 +142,8 @@ if pred != 'Not News':
     columns[3].markdown("[Linkedin](https://www.linkedin.com/)")
 
     ""
+    ""
+
 
     if st.checkbox('Further details on the project'):
         st.markdown("""
