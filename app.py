@@ -26,6 +26,8 @@ st.sidebar.markdown("""
     """)
 
 
+
+
 # IN CASE WE WANT TO SELECT A BACKGROUND PIC
 
 # CSS = """
@@ -74,6 +76,7 @@ if st.checkbox('Show progress bar'):
     '...and we\'re done!'
 
 
+
 fakenews_api_url = 'https://fakenews-container-ec4glsrwzq-nw.a.run.app/predict'
 response = requests.get(fakenews_api_url, params={'txt':txt})
 
@@ -97,3 +100,32 @@ elif float(pred) < 0.5:
 
     Pred value:{pred}""")
     # Display funny pic/gif
+
+""
+""
+""
+""
+""
+""
+st.markdown("""
+## Developed by
+    """)
+
+
+columns = st.columns(4)
+
+adam = columns[0].image("pics/adam.png", width=140)
+columns[0].write("**Adam Goodes**")
+columns[0].write("Linkedin")
+
+andre = columns[1].image("pics/andre.png", width=140)
+columns[1].write("**André Marinho**")
+columns[1].write("Linkedin")
+
+charles = columns[2].image("pics/charles.png", width=140)
+columns[2].write('**Charles Chaverot**')
+columns[2].write('Linkedin')
+
+lukas = columns[3].image("pics/lukas.png", width=140)
+columns[3].write('**Maury Lukas**')
+columns[3].write('Linkedin')
