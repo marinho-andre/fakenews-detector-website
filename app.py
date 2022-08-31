@@ -113,7 +113,7 @@ elif float(pred) < 0.5:
 ""
 
 
-if pred != False:
+if pred != 'Not News':
 
     time.sleep(5)
 
