@@ -5,6 +5,7 @@ import time
 import webbrowser
 
 
+
 # Text that goes on the navigator tab
 
 st.set_page_config(
@@ -14,6 +15,19 @@ st.set_page_config(
             initial_sidebar_state="auto") # collapsed
 
 
+def _max_width_():
+    max_width_str = f"max-width: 2000px;"
+    st.markdown(
+        f"""
+    <style>
+    .reportview-container .main .block-container{{
+        {max_width_str}
+    }}
+    </style>
+    """,
+        unsafe_allow_html=True,
+    )
+_max_width_()
 
 # IN CASE WE WANT TO SELECT A BACKGROUND PIC
 
@@ -144,12 +158,11 @@ if pred != 'Not News':
     ""
     ""
 
+    with st.expander("More details about the project"):
+         st.markdown("""
+            # Some information
 
-    if st.checkbox('Further details on the project'):
-        st.markdown("""
-        # Some information
+            Optional: Context of the project, data sources, methodology (algorithms that we've chosen, parameters, evaluation metrics), constraints, etc.
 
-        Optional: Context of the project, data sources, methodology (algorithms that we've chosen, parameters, evaluation metrics), constraints, etc.
-
-        Some info about the authors
-        """)
+            Some info about the authors
+            """)
