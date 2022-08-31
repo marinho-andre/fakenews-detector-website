@@ -1,9 +1,8 @@
 from urllib.error import URLError
 import streamlit as st
 import requests
-
-import numpy as np
-import pandas as pd
+import time
+import webbrowser
 
 
 # Text that goes on the navigator tab
@@ -15,18 +14,6 @@ st.set_page_config(
             initial_sidebar_state="auto") # collapsed
 
 
-# Content that goes on the sidebar
-
-st.sidebar.markdown("""
-    # Some information
-
-    Optional: Context of the project, data sources, methodology (algorithms that we've chosen, parameters, evaluation metrics), constraints, etc.
-
-    Some info about the authors
-    """)
-
-
-
 
 # IN CASE WE WANT TO SELECT A BACKGROUND PIC
 
@@ -35,17 +22,15 @@ st.sidebar.markdown("""
 #     color: red;
 # }
 # .stApp {
-#     background-image: url(https://avatars1.githubusercontent.com/u/9978111?v=4);
+#     background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5IPGVzeiI06TDGsUrHEEoBpRV--xJhCKXRGiqY6u4P6JKkPTHzoduSur1d2L3VrEScmE&usqp=CAU);
 #     background-size: cover;
 # }
 # """
-#st.write(f'<style>{CSS}</style>', unsafe_allow_html=True)
+# st.write(f'<style>{CSS}</style>', unsafe_allow_html=True)
 
 
-# Title, subtitle and text input
-
-st.markdown("<h1 style='text-align: left; color: SteelBlue;'>Fake News Detector</h1>", unsafe_allow_html=True)
-st.markdown("<h3 style='text-align: left; color: LightSteelBlue; font_size: 40px'><i>The truth will set you free<i></h3>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: left; color: LightSteelBlue;'>Fake News Detector</h1>", unsafe_allow_html=True)
+st.markdown("<h3 style='text-align: left; color: AntiqueWhite; font_size: 40px'><i>The truth will set you free<i></h3>", unsafe_allow_html=True)
 
 ""
 ""
@@ -58,12 +43,32 @@ txt = st.text_area("Please, insert the article to be analyzed in the box below:"
 
 st.write('Length:', len(txt))
 
-if st.checkbox('Show progress bar'):
-    import time
+# if st.checkbox('Show progress bar'):
+#     import time
+
+#     'Analyzing text...'
+
+#     # Add a placeholder
+#     latest_iteration = st.empty()
+#     bar = st.progress(0)
+
+#     for i in range(100):
+#         # Update the progress bar with each iteration.
+#         latest_iteration.text(f'Iteration {i+1}')
+#         bar.progress(i + 1)
+#         time.sleep(0.01)
+
+#     '...and we\'re done!'
+
+
+
+
+
+# Add a placeholder
+
+if txt != "":
 
     'Analyzing text...'
-
-    # Add a placeholder
     latest_iteration = st.empty()
     bar = st.progress(0)
 
@@ -71,10 +76,9 @@ if st.checkbox('Show progress bar'):
         # Update the progress bar with each iteration.
         latest_iteration.text(f'Iteration {i+1}')
         bar.progress(i + 1)
-        time.sleep(0.01)
+        time.sleep(0.02)
 
     '...and we\'re done!'
-
 
 
 fakenews_api_url = 'https://fakenews-container-ec4glsrwzq-nw.a.run.app/predict'
@@ -107,25 +111,43 @@ elif float(pred) < 0.5:
 ""
 ""
 ""
-st.markdown("""
-## Developed by
-    """)
 
 
-columns = st.columns(4)
+if pred != False:
 
-adam = columns[0].image("pics/adam.png", width=140)
-columns[0].write("**Adam Goodes**")
-columns[0].write("Linkedin")
+    time.sleep(5)
 
-andre = columns[1].image("pics/andre.png", width=140)
-columns[1].write("**André Marinho**")
-columns[1].write("Linkedin")
+    st.markdown("""
+        ## Developed by
+            """)
 
-charles = columns[2].image("pics/charles.png", width=140)
-columns[2].write('**Charles Chaverot**')
-columns[2].write('Linkedin')
+    ""
 
-lukas = columns[3].image("pics/lukas.png", width=140)
-columns[3].write('**Maury Lukas**')
-columns[3].write('Linkedin')
+    columns = st.columns(4)
+
+    adam = columns[0].image("pics/adam.png", width=140)
+    columns[0].markdown("<h4 style='text-align: left; color: white;'>Adam Goodes</h4>", unsafe_allow_html=True)
+    columns[0].markdown("[Linkedin](https://www.linkedin.com/)")
+
+    andre = columns[1].image("pics/andre.png", width=140)
+    columns[1].markdown("<h4 style='text-align: left; color: white;'>André Marinho</h4>", unsafe_allow_html=True)
+    columns[1].markdown("[Linkedin](https://www.linkedin.com/in/agmarinho/)")
+
+    charles = columns[2].image("pics/charles.png", width=140)
+    columns[2].markdown("<h4 style='text-align: left; color: white;'>Charles Chaverot</h4>", unsafe_allow_html=True)
+    columns[2].markdown("[Linkedin](https://www.linkedin.com/)")
+
+    lukas = columns[3].image("pics/lukas.png", width=140)
+    columns[3].markdown("<h4 style='text-align: left; color: white;'>Lukas Freitas</h4>", unsafe_allow_html=True)
+    columns[3].markdown("[Linkedin](https://www.linkedin.com/)")
+
+    ""
+
+    if st.checkbox('Further details on the project'):
+        st.markdown("""
+        # Some information
+
+        Optional: Context of the project, data sources, methodology (algorithms that we've chosen, parameters, evaluation metrics), constraints, etc.
+
+        Some info about the authors
+        """)
