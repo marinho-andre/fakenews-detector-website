@@ -131,24 +131,29 @@ elif float(pred) < 0.5:
 
 if pred != 'Not News':
 
-    time.sleep(5)
 
     if st.checkbox('Developed by'):
 
+
+
         columns = st.columns(4)
 
-        adam = columns[0].image("pics/adam.png", width=140)
-        columns[0].markdown("<h4 style='text-align: left; color: SteelBlue;'>Adam Goodes</h4>", unsafe_allow_html=True)
-        #columns[0].markdown("[Linkedin](https://www.linkedin.com/)")
+        adam = columns[0].image("pics/adam.png", width=130)
+        columns[0].markdown("<h5 style='text-align: left; color: SteelBlue;'>Adam Goodes</h5>", unsafe_allow_html=True)
+        columns[0].markdown("[Linkedin](https://www.linkedin.com/in/goodes-adam)")
 
-        andre = columns[1].image("pics/andre.png", width=140)
-        columns[1].markdown("<h4 style='text-align: left; color: SteelBlue;'>André Marinho</h4>", unsafe_allow_html=True)
-        #columns[1].markdown("[Linkedin](https://www.linkedin.com/in/agmarinho/)")
+        andre = columns[1].image("pics/andre.png", width=130)
+        columns[1].markdown("<h5 style='text-align: left; color: SteelBlue;'>André Marinho</h5>", unsafe_allow_html=True)
+        columns[1].markdown("[Linkedin](https://www.linkedin.com/in/agmarinho/)")
 
-        charles = columns[2].image("pics/charles.png", width=140)
-        columns[2].markdown("<h4 style='text-align: left; color: SteelBlue;'>Charles Chaverot</h4>", unsafe_allow_html=True)
-        #columns[2].markdown("[Linkedin](https://www.linkedin.com/)")
+        charles = columns[2].image("pics/charles.png", width=130)
+        columns[2].markdown("<h5 style='text-align: left; color: SteelBlue;'>Charles Chaverot</h5>", unsafe_allow_html=True)
+        columns[2].markdown("[Linkedin](https://www.linkedin.com/in/maurylukas/)")
 
-        lukas = columns[3].image("pics/lukas.png", width=140)
-        columns[3].markdown("<h4 style='text-align: left; color: SteelBlue;'>Lukas Freitas</h4>", unsafe_allow_html=True)
-        #columns[3].markdown("[Linkedin](https://www.linkedin.com/)")
+        lukas = columns[3].image("pics/lukas.png", width=130)
+        columns[3].markdown("<h5 style='text-align: left; color: SteelBlue;'>Lukas Freitas</h5>", unsafe_allow_html=True)
+        columns[3].markdown("[Linkedin](https://www.linkedin.com/in/charles-chaverot/)")
+
+        ''
+
+        st.markdown("#### [GitHub Repo](https://github.com/goodesad/fake-news)")
