@@ -148,11 +148,11 @@ if pred != 'Not News':
 
         charles = columns[2].image("pics/charles.png", width=130)
         columns[2].markdown("<h5 style='text-align: left; color: SteelBlue;'>Charles Chaverot</h5>", unsafe_allow_html=True)
-        columns[2].markdown("[Linkedin](https://www.linkedin.com/in/maurylukas/)")
+        columns[2].markdown("[Linkedin](https://www.linkedin.com/in/charleschaverot/)")
 
         lukas = columns[3].image("pics/lukas.png", width=130)
         columns[3].markdown("<h5 style='text-align: left; color: SteelBlue;'>Lukas Freitas</h5>", unsafe_allow_html=True)
-        columns[3].markdown("[Linkedin](https://www.linkedin.com/in/charles-chaverot/)")
+        columns[3].markdown("[Linkedin](https://www.linkedin.com/in/maurylukas/)")
 
         ''
 
