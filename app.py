@@ -29,8 +29,8 @@ st.set_page_config(
 # st.write(f'<style>{CSS}</style>', unsafe_allow_html=True)
 
 
-st.markdown("<h1 style='text-align: left; color: LightSteelBlue;'>Fake News Detector</h1>", unsafe_allow_html=True)
-st.markdown("<h3 style='text-align: left; color: AntiqueWhite; font_size: 40px'><i>The truth will set you free<i></h3>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: left; color: SteelBlue;'>Fake News Detector</h1>", unsafe_allow_html=True)
+st.markdown("<h3 style='text-align: left; color: LightSteelBlue; font_size: 40px'><i>The truth will set you free<i></h3>", unsafe_allow_html=True)
 
 ""
 ""
@@ -68,17 +68,20 @@ st.write('Length:', len(txt))
 
 if txt != "":
 
-    'Analyzing text...'
+
     latest_iteration = st.empty()
     bar = st.progress(0)
 
     for i in range(100):
         # Update the progress bar with each iteration.
-        latest_iteration.text(f'Iteration {i+1}')
+        latest_iteration.text(f'Analyzing text... 🥁🥁🥁 {i+1}')
         bar.progress(i + 1)
         time.sleep(0.02)
 
-    '...and we\'re done!'
+    st.markdown("""...and we\'re done! 😎""")
+
+    time.sleep(2)
+
 
 
 fakenews_api_url = 'https://fakenews-container-ec4glsrwzq-nw.a.run.app/predict'
@@ -91,29 +94,38 @@ pred = prediction['Class']
 if txt == "":
     pass
 elif pred == 'Not News':
-    st.warning("""Hmm... this doesn't sound like a news article""")
-    # Display funny pic/gif
+    st.warning("""Hmm... it doesn't sound like a news article 🤔""")
+
 
 elif float(pred) > 0.5:
-    st.success(f"""Message displayed for success (True)!
 
-    Pred value:{pred}""")
-    # Display funny pic/gif
+    st.success(f"""✅ Actually seems legit! ✅""")
+
+    st.markdown("![Alt Text](https://c.tenor.com/J5A9wZzn3ZYAAAAd/robert-redford-jeremiah-johnson.gif)")
+
+    st.markdown(f"""### According to our model, the probability of what's being stated in the article above isn't fake is **{round((float(pred)) * 100, 2)}%**! """)
+
+    st.markdown("<h3 style='text-align: left; color: LightSteelBlue; font_size: 40px'>You're good to share it on your family Whatsapp group 😉</h3>", unsafe_allow_html=True)
+
+
+
+
 elif float(pred) < 0.5:
     time.sleep(2)
 
+    st.error(f"""❌ FAKE ALERT! ❌""")
+
     st.markdown("![Alt Text](https://media.giphy.com/media/jj2dVdPydkajWiSTMd/giphy.gif)")
 
-    st.error(f"""Message displayed for fake.
+    time.sleep(2)
 
-    Pred value:{pred}""")
-    # Display funny pic/gif
+    st.markdown(f"""### According to our model, the probability of what's being stated in the article above is fake is **{round((1 - (float(pred))) * 100, 2)}%**! """)
+
+    st.markdown("<h3 style='text-align: left; color: LightCoral; font_size: 40px'>So you should better not spread these words! 😉</h3>", unsafe_allow_html=True)
 
 ""
 ""
-""
-""
-""
+
 ""
 
 
@@ -121,38 +133,22 @@ if pred != 'Not News':
 
     time.sleep(5)
 
-    st.markdown("""
-        ## Developed by
-            """)
+    if st.checkbox('Developed by'):
 
-    ""
+        columns = st.columns(4)
 
-    columns = st.columns(4)
+        adam = columns[0].image("pics/adam.png", width=140)
+        columns[0].markdown("<h4 style='text-align: left; color: SteelBlue;'>Adam Goodes</h4>", unsafe_allow_html=True)
+        #columns[0].markdown("[Linkedin](https://www.linkedin.com/)")
 
-    adam = columns[0].image("pics/adam.png", width=140)
-    columns[0].markdown("<h4 style='text-align: left; color: white;'>Adam Goodes</h4>", unsafe_allow_html=True)
-    columns[0].markdown("[Linkedin](https://www.linkedin.com/)")
+        andre = columns[1].image("pics/andre.png", width=140)
+        columns[1].markdown("<h4 style='text-align: left; color: SteelBlue;'>André Marinho</h4>", unsafe_allow_html=True)
+        #columns[1].markdown("[Linkedin](https://www.linkedin.com/in/agmarinho/)")
 
-    andre = columns[1].image("pics/andre.png", width=140)
-    columns[1].markdown("<h4 style='text-align: left; color: white;'>André Marinho</h4>", unsafe_allow_html=True)
-    columns[1].markdown("[Linkedin](https://www.linkedin.com/in/agmarinho/)")
+        charles = columns[2].image("pics/charles.png", width=140)
+        columns[2].markdown("<h4 style='text-align: left; color: SteelBlue;'>Charles Chaverot</h4>", unsafe_allow_html=True)
+        #columns[2].markdown("[Linkedin](https://www.linkedin.com/)")
 
-    charles = columns[2].image("pics/charles.png", width=140)
-    columns[2].markdown("<h4 style='text-align: left; color: white;'>Charles Chaverot</h4>", unsafe_allow_html=True)
-    columns[2].markdown("[Linkedin](https://www.linkedin.com/)")
-
-    lukas = columns[3].image("pics/lukas.png", width=140)
-    columns[3].markdown("<h4 style='text-align: left; color: white;'>Lukas Freitas</h4>", unsafe_allow_html=True)
-    columns[3].markdown("[Linkedin](https://www.linkedin.com/)")
-
-    ""
-    ""
-
-    with st.expander("More details about the project"):
-         st.markdown("""
-            # Some information
-
-            Optional: Context of the project, data sources, methodology (algorithms that we've chosen, parameters, evaluation metrics), constraints, etc.
-
-            Some info about the authors
-            """)
+        lukas = columns[3].image("pics/lukas.png", width=140)
+        columns[3].markdown("<h4 style='text-align: left; color: SteelBlue;'>Lukas Freitas</h4>", unsafe_allow_html=True)
+        #columns[3].markdown("[Linkedin](https://www.linkedin.com/)")
