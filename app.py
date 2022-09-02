@@ -29,7 +29,7 @@ st.set_page_config(
 # st.write(f'<style>{CSS}</style>', unsafe_allow_html=True)
 
 
-st.markdown("<h1 style='text-align: left; color: SteelBlue;'>Fake News Detector</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: left; color: SteelBlue;'>🔎Fake News Detector🔍</h1>", unsafe_allow_html=True)
 st.markdown("<h3 style='text-align: left; color: LightSteelBlue; font_size: 40px'><i>The truth will set you free<i></h3>", unsafe_allow_html=True)
 
 ""
