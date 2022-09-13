@@ -14,21 +14,6 @@ st.set_page_config(
             layout="centered", # wide
             initial_sidebar_state="auto") # collapsed
 
-
-# IN CASE WE WANT TO SELECT A BACKGROUND PIC
-
-# CSS = """
-# h1 {
-#     color: red;
-# }
-# .stApp {
-#     background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5IPGVzeiI06TDGsUrHEEoBpRV--xJhCKXRGiqY6u4P6JKkPTHzoduSur1d2L3VrEScmE&usqp=CAU);
-#     background-size: cover;
-# }
-# """
-# st.write(f'<style>{CSS}</style>', unsafe_allow_html=True)
-
-
 st.markdown("<h1 style='text-align: left; color: SteelBlue;'>🔎📰 Fake News Detector 📰🔍</h1>", unsafe_allow_html=True)
 st.markdown("<h3 style='text-align: left; color: LightSteelBlue; font_size: 40px'><i>The truth will set you free<i></h3>", unsafe_allow_html=True)
 
