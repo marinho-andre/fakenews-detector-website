@@ -15,20 +15,6 @@ st.set_page_config(
             initial_sidebar_state="auto") # collapsed
 
 
-# IN CASE WE WANT TO SELECT A BACKGROUND PIC
-
-# CSS = """
-# h1 {
-#     color: red;
-# }
-# .stApp {
-#     background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5IPGVzeiI06TDGsUrHEEoBpRV--xJhCKXRGiqY6u4P6JKkPTHzoduSur1d2L3VrEScmE&usqp=CAU);
-#     background-size: cover;
-# }
-# """
-# st.write(f'<style>{CSS}</style>', unsafe_allow_html=True)
-
-
 st.markdown("<h1 style='text-align: left; color: SteelBlue;'>🔎📰 Fake News Detector 📰🔍</h1>", unsafe_allow_html=True)
 st.markdown("<h3 style='text-align: left; color: LightSteelBlue; font_size: 40px'><i>The truth will set you free<i></h3>", unsafe_allow_html=True)
 
@@ -42,27 +28,6 @@ st.markdown("""
 txt = st.text_area("Please, insert the article to be analyzed in the box below:","")
 
 st.write('Length:', len(txt))
-
-# if st.checkbox('Show progress bar'):
-#     import time
-
-#     'Analyzing text...'
-
-#     # Add a placeholder
-#     latest_iteration = st.empty()
-#     bar = st.progress(0)
-
-#     for i in range(100):
-#         # Update the progress bar with each iteration.
-#         latest_iteration.text(f'Iteration {i+1}')
-#         bar.progress(i + 1)
-#         time.sleep(0.01)
-
-#     '...and we\'re done!'
-
-
-
-
 
 # Add a placeholder
 
